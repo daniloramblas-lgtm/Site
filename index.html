@@ -293,6 +293,20 @@
         <div><h4>Integração com Office</h4><p>VBA e macros para padronizar arquivos e cortar o retrabalho da rotina.</p></div>
       </div>
     </div>
+
+    <div style="margin-top:2.5rem" class="projeto">
+      <h3>Arquivador <em>assistido</em> de e-mails</h3>
+      <div class="prosa">
+        <p>Triagem de caixa jurídica que identifica o cliente a partir do assunto e do corpo da mensagem por uma cadeia de regras, compara o nome com a árvore de pastas usando distância de Levenshtein e só arquiva sozinho acima de 75% de confiança. Abaixo disso, apresenta os três melhores candidatos e devolve a decisão para a pessoa.</p>
+        <p>A premissa é a mesma do resto do meu trabalho: a máquina executa, o critério continua humano.</p>
+      </div>
+      <div class="feats">
+        <div><h4>Correspondência aproximada</h4><p>Pontuação por tokens com peso maior no sobrenome, tolerando abreviações e erros de digitação.</p></div>
+        <div><h4>Trava de segurança</h4><p>Mensagens não lidas não são arquivadas, e o destino precisa ser compatível com o cliente identificado.</p></div>
+        <div><h4>Cadeia de evidências</h4><p>Cada operação entra num registro encadeado por hashes SHA-256: alteração posterior fica detectável.</p></div>
+        <div><h4>Aprendizado por correção</h4><p>Quando o usuário escolhe outro destino, a associação fica registrada para as próximas mensagens.</p></div>
+      </div>
+    </div>
   </section>
 
   <section class="section" id="secSkills">
