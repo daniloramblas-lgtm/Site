@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Danilo Ramblas — Direito, tecnologia e automação</title>
+<meta name="description" content="Estudante de Direito e estagiário jurídico em São Paulo. Cível, médico, criminal, previdenciário e público, com automação de rotinas de escritório.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF9F6; --bone:#EFEDE7; --ink:#141414;
+    --grey:#8C8B84; --line:#DFDCD4; --pad:clamp(1.25rem,4vw,4rem);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Inter",system-ui,sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  button{font:inherit;cursor:pointer}
+  a{color:inherit}
+  .hidden{display:none !important}
+  h1,h2,h3{font-family:"Instrument Serif",serif;font-weight:400;letter-spacing:-0.012em}
+  .track{font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--grey)}
+
+  /* ---- nav ---- */
+  .nav{position:sticky;top:0;z-index:30;background:rgba(250,249,246,.94);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;
+    gap:1rem;padding:1.15rem var(--pad)}
+  .brand{font-family:"Instrument Serif",serif;font-size:1.22rem;letter-spacing:.26em;background:none;border:0;padding:0;color:var(--ink)}
+  .links{display:flex;align-items:center;gap:1.7rem}
+  .links button:not(.pill){background:none;border:0;padding:0;color:var(--grey);
+    font-size:.66rem;letter-spacing:.18em;text-transform:uppercase}
+  .links button:not(.pill):hover,.links button.on{color:var(--ink)}
+  .pill{border:1px solid var(--ink);border-radius:999px;padding:.5rem 1.15rem;background:none;color:var(--ink);
+    font-size:.66rem;letter-spacing:.16em;text-transform:uppercase}
+  .pill:hover{background:var(--ink);color:var(--paper)}
+  .pill.solid{background:var(--ink);color:var(--paper)}
+  @media(max-width:860px){.links button:not(.pill){display:none}}
+
+  /* ---- faixa de metadados ---- */
+  .strip{display:flex;justify-content:space-between;gap:1rem;padding:.7rem var(--pad);border-bottom:1px solid var(--line)}
+  @media(max-width:640px){.strip .mid{display:none}}
+
+  /* ---- hero ---- */
+  .hero{padding:clamp(3.5rem,10vw,7rem) var(--pad) clamp(2.5rem,6vw,4rem)}
+  .hero h1{font-size:clamp(2.7rem,8.5vw,6.2rem);line-height:.98;margin:0 0 2rem;max-width:15ch}
+  .hero h1 em{font-style:italic}
+  .hero .under{display:grid;grid-template-columns:1fr;gap:2rem;align-items:end}
+  @media(min-width:900px){.hero .under{grid-template-columns:1fr auto}}
+  .hero .lede{margin:0;color:#4A4A45;max-width:46ch;font-size:1.02rem}
+  .hero-actions{display:flex;gap:.6rem;flex-wrap:wrap}
+
+  /* ---- tira de imagens ---- */
+  .strip-img{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;padding:0 var(--pad) clamp(2rem,5vw,3rem)}
+  .strip-img .tile{aspect-ratio:4/3;background:var(--bone);border-radius:2px;overflow:hidden;
+    display:flex;align-items:center;justify-content:center;color:#B5B2A9;font-size:.64rem;letter-spacing:.16em;text-transform:uppercase}
+  .strip-img img{width:100%;height:100%;object-fit:cover;display:block}
+  .strip-img .tile:nth-child(2){background:#E8E5DE}
+
+  /* ---- letreiro ---- */
+  .ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:1.1rem 0;background:var(--paper)}
+  .ticker-inner{display:flex;gap:3rem;white-space:nowrap;width:max-content;animation:slide 38s linear infinite}
+  .ticker span{font-family:"Instrument Serif",serif;font-size:clamp(1.1rem,2.4vw,1.6rem);letter-spacing:.12em;text-transform:uppercase;color:#6F6E67}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media(prefers-reduced-motion:reduce){.ticker-inner{animation:none}}
+
+  /* ---- seções ---- */
+  .section{padding:clamp(3rem,7vw,5.5rem) var(--pad);border-top:1px solid var(--line)}
+  .section:first-of-type{border-top:0}
+  .head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:2.4rem}
+  .head h2{font-size:clamp(1.9rem,4.2vw,2.8rem);margin:0}
+  .label{margin-bottom:.9rem}
+  .prosa{max-width:44ch;font-size:1.05rem;line-height:1.78;color:#2C2C28}
+  .prosa p{margin:0 0 1.3rem}.prosa p:last-child{margin:0}
+
+  .duo{display:grid;grid-template-columns:1fr;gap:3rem}
+  @media(min-width:900px){.duo{grid-template-columns:1.1fr .9fr;gap:4.5rem}}
+  .ficha{border-top:1px solid var(--line)}
+  .ficha .row{display:grid;grid-template-columns:7.5rem 1fr;gap:1rem;padding:.85rem 0;border-bottom:1px solid var(--line)}
+  .ficha dt{margin:0}
+  .ficha dd{margin:0;font-size:.92rem}
+
+  /* ---- trajetória ---- */
+  .job{display:grid;grid-template-columns:1fr;gap:.4rem;padding:1.7rem 0;border-top:1px solid var(--line)}
+  @media(min-width:820px){.job{grid-template-columns:15rem 1fr;gap:3rem}}
+  .job:first-child{border-top:0;padding-top:0}
+  .job .where{font-size:.95rem;font-weight:500}
+  .job .when{margin-top:.35rem}
+  .job h3{font-size:1.5rem;margin:0 0 .5rem}
+  .job p{margin:0;color:#5A5A55;max-width:58ch;font-size:.95rem}
+
+  /* ---- projeto ---- */
+  .projeto{background:var(--bone);border-radius:2px;padding:clamp(1.6rem,4.5vw,3.2rem)}
+  .projeto h3{font-size:clamp(1.9rem,4vw,2.6rem);margin:0 0 1rem}
+  .projeto h3 em{font-style:italic}
+  .feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:1.5rem;
+    margin-top:2.2rem;padding-top:1.7rem;border-top:1px solid #D8D5CD}
+  .feats h4{margin:0 0 .35rem;font-size:.88rem;font-weight:500}
+  .feats p{margin:0;font-size:.86rem;color:#615F59}
+
+  /* ---- competências ---- */
+  .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:2.2rem}
+  .skills h4{font-size:.85rem;font-weight:500;margin:0 0 .5rem}
+  .skills p{margin:0;color:#615F59;font-size:.9rem}
+  details{margin-top:2.8rem;border-top:1px solid var(--line);padding-top:1.3rem}
+  summary{cursor:pointer;list-style:none}
+  summary::-webkit-details-marker{display:none}
+  summary:hover{color:var(--ink)}
+  .cursos{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:1.8rem;margin-top:1.5rem}
+  .cursos h4{margin:0;font-size:.82rem;font-weight:500}
+  .cursos ul{margin:.45rem 0 0;padding-left:1rem;color:#615F59;font-size:.88rem}
+  .cursos li{margin-bottom:.28rem}
+
+  /* ---- textos ---- */
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:2.4rem 1.8rem}
+  .card{text-align:left;background:none;border:0;padding:0;color:inherit}
+  .card .thumb{aspect-ratio:4/3;background:var(--bone);border-radius:2px;overflow:hidden;margin-bottom:1rem;
+    display:flex;align-items:center;justify-content:center;color:#B5B2A9;font-size:.64rem;letter-spacing:.16em;text-transform:uppercase}
+  .card .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+  .card h3{font-size:1.5rem;line-height:1.2;margin:.5rem 0 .45rem}
+  .card:hover h3{font-style:italic}
+  .card p{margin:0;color:#5A5A55;font-size:.92rem}
+  .empty{color:var(--grey);padding:1.5rem 0}
+
+  /* ---- contato ---- */
+  .contato{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:1.8rem;margin-top:2rem}
+  .contato a{font-family:"Instrument Serif",serif;font-size:1.25rem;text-decoration:none;
+    border-bottom:1px solid var(--line);padding-bottom:.35rem;display:inline-block}
+  .contato a:hover{border-color:var(--ink);font-style:italic}
+  .contato .k{display:block;margin-bottom:.5rem}
+
+  /* ---- leitura ---- */
+  .reader{padding:clamp(2rem,5vw,4rem) var(--pad) 6rem;max-width:42rem}
+  .reader h1{font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.04;margin:1.2rem 0 .8rem}
+  .reader .cover{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:2px;margin:2.2rem 0}
+  .reader .body{font-size:1.08rem;line-height:1.8;color:#2C2C28}
+  .reader .body p{margin:0 0 1.35rem}
+  .back{background:none;border:0;padding:0;color:var(--grey);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase}
+  .back:hover{color:var(--ink)}
+
+  /* ---- painel ---- */
+  .admin{padding:clamp(2rem,5vw,4rem) var(--pad) 6rem}
+  .admin h2{font-size:2.2rem;margin:.6rem 0 .3rem}
+  .admin .lede{color:var(--grey);margin:0 0 2.6rem;max-width:48ch}
+  .cols{display:grid;grid-template-columns:1fr;gap:3rem}
+  @media(min-width:960px){.cols{grid-template-columns:1.35fr 1fr}}
+  label{display:block;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);margin-bottom:.45rem}
+  input,textarea,select{width:100%;font:inherit;padding:.65rem .75rem;background:var(--paper);
+    border:1px solid var(--line);border-radius:2px;color:var(--ink)}
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--ink)}
+  .field{margin-bottom:1.1rem}
+  textarea{min-height:12rem;resize:vertical;line-height:1.65}
+  .actions{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;margin-top:.4rem}
+  .status{font-size:.8rem;color:var(--grey)}
+  .item{display:flex;justify-content:space-between;gap:1rem;padding:.9rem 0;border-bottom:1px solid var(--line)}
+  .item h4{font-family:"Instrument Serif",serif;font-weight:400;font-size:1.15rem;margin:0 0 .2rem}
+  .item small{color:var(--grey);font-size:.74rem}
+  .item .draft{color:#8E6A34}
+  .mini{border:1px solid var(--line);border-radius:999px;background:none;padding:.25rem .75rem;
+    font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grey)}
+  .mini:hover{border-color:var(--ink);color:var(--ink)}
+  .row-btns{display:flex;gap:.4rem;flex-shrink:0}
+
+  footer{border-top:1px solid var(--line);padding:2.6rem var(--pad) 3.4rem;
+    display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+  :focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+  @media print{.nav,.strip,.ticker,footer,.hero-actions,#viewAdmin,.strip-img{display:none}}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <button class="brand" id="navHome">DANILO RAMBLAS</button>
+  <div class="links">
+    <button data-go="secSobre">Sobre</button>
+    <button data-go="secTraj">Trajetória</button>
+    <button data-go="secProjeto">Projeto</button>
+    <button data-go="secTextos">Textos</button>
+    <button id="navAdmin">Painel</button>
+    <button class="pill" data-go="secContato">Contato</button>
+  </div>
+</div>
+
+<!-- ===================== PÚBLICO ===================== -->
+<main id="viewPublic">
+
+  <div class="strip track">
+    <span>[ São Paulo, SP ]</span>
+    <span class="mid">Direito · Automação · Dados</span>
+    <span>2026</span>
+  </div>
+
+  <section class="hero">
+    <h1>Direito na rotina, e a <em>automação</em> que ela pedia</h1>
+    <div class="under">
+      <p class="lede">Estudante de Direito e estagiário jurídico. Trabalho com peças, processos administrativos e prazos — e construo as ferramentas que tiram o trabalho repetitivo do caminho.</p>
+      <div class="hero-actions">
+        <button class="pill solid" data-go="secTraj">Ver a trajetória</button>
+        <button class="pill" data-go="secContato">Falar comigo</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip-img">
+    <div class="tile">imagem 01</div>
+    <div class="tile">imagem 02</div>
+    <div class="tile">imagem 03</div>
+  </div>
+
+  <div class="ticker">
+    <div class="ticker-inner">
+      <span>A rotina não precisa ser refeita todo dia</span><span>◆</span>
+      <span>A rotina não precisa ser refeita todo dia</span><span>◆</span>
+      <span>A rotina não precisa ser refeita todo dia</span><span>◆</span>
+      <span>A rotina não precisa ser refeita todo dia</span><span>◆</span>
+    </div>
+  </div>
+
+  <section class="section" id="secSobre">
+    <div class="duo">
+      <div>
+        <div class="track label">[ sobre ]</div>
+        <div class="head"><h2>Quem escreve aqui</h2></div>
+        <div class="prosa">
+          <p>Comecei no previdenciário, conferindo laudos e controlando prazos. Passei pelo direito público, com habilitação de herdeiros e precatórios, e hoje trabalho com direito médico, cível e criminal numa seguradora.</p>
+          <p>Em todos esses lugares a conta era parecida: boa parte do dia ia embora em tarefas que a máquina faria melhor. Aprendi a programar por esse motivo, não pelo oposto — primeiro veio o problema, depois o código.</p>
+          <p>O que me interessa agora é o encontro dos dois: usar tecnologia para devolver ao trabalho jurídico o tempo de pensar.</p>
+        </div>
+      </div>
+      <dl class="ficha">
+        <div class="row"><dt class="track">Formação</dt><dd>Direito, Universidade São Judas Tadeu — 4º semestre, conclusão em 2029</dd></div>
+        <div class="row"><dt class="track">Hoje</dt><dd>Estagiário jurídico na Forza Seguros — médico, cível e criminal</dd></div>
+        <div class="row"><dt class="track">Áreas</dt><dd>Cível · Médico · Criminal · Previdenciário · Público</dd></div>
+        <div class="row"><dt class="track">Sistemas</dt><dd>e-SAJ, PJe, eproc, Projudi, Legal One · administrador do Doc9</dd></div>
+        <div class="row"><dt class="track">Automação</dt><dd>Excel e VBA, Outlook, Teams, SQL e Power BI</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section" id="secTraj">
+    <div class="track label">[ trajetória ]</div>
+    <div class="head"><h2>Onde passei</h2><span class="track">do mais recente ao primeiro</span></div>
+    <div>
+      <div class="job">
+        <div><div class="where">Forza Seguros</div><div class="when track">atual</div></div>
+        <div>
+          <h3>Direito Médico, Cível e Criminal</h3>
+          <p>Petições diversas, pesquisa jurídica e controle de prazos. Atuo em processos administrativos e sindicâncias, e analiso documentos para avaliação de cobertura, abertura de sinistros e atendimento a clientes médicos.</p>
+          <p style="margin-top:.8rem">Sou administrador do Doc9 no escritório e respondo pela solicitação de inscrições suplementares na OAB — rotinas que dependem de confiança porque lidam com credenciais e acesso. Em paralelo, desenvolvo as automações que padronizam o trabalho interno.</p>
+        </div>
+      </div>
+      <div class="job">
+        <div><div class="where">Scolari Neto &amp; Oliveira Filho Advogados</div></div>
+        <div>
+          <h3>Direito Público e habilitação de herdeiros</h3>
+          <p>Elaboração e protocolo de petições no TJSP e no e-SAJ, saneamento de processos e apoio a cumprimentos de sentença. Conferência de percentuais hereditários e apoio a cálculos de precatórios.</p>
+        </div>
+      </div>
+      <div class="job">
+        <div><div class="where">Caíque Castro Sociedade de Advocacia</div></div>
+        <div>
+          <h3>Direito Previdenciário</h3>
+          <p>Petições e pedidos de dilação de prazo, com acompanhamento de processos em diferentes estados. Análise documental e conferência de laudos periciais no controle diário das demandas.</p>
+        </div>
+      </div>
+      <div class="job">
+        <div><div class="where">MLR Advogados</div></div>
+        <div>
+          <h3>Direito Previdenciário — onde tudo começou</h3>
+          <p>Apoio à elaboração de peças, análise de viabilidade e verificação de requisitos para benefícios do INSS. Pesquisa de legislação e jurisprudência, atendimento e organização de documentos.</p>
+        </div>
+      </div>
+      <div class="job">
+        <div><div class="where">Autônomo</div><div class="when track">2022 – 2024</div></div>
+        <div>
+          <h3>Comunidade e bots, antes do Direito</h3>
+          <p>Administrei uma comunidade de mais de cinco mil pessoas entre Discord e redes sociais, com gestão de assinaturas, bots e integrações de API. Foi ali que aprendi a construir o que hoje aplico no escritório.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="secProjeto">
+    <div class="track label">[ projeto próprio ]</div>
+    <div class="projeto">
+      <h3>Ramblas <em>Legal</em></h3>
+      <div class="prosa">
+        <p>Um sistema para escritórios de advocacia que liga três coisas que costumam viver separadas: o cadastro do cliente, a produção do documento e a organização da informação. Construí porque precisava dele.</p>
+      </div>
+      <div class="feats">
+        <div><h4>Documentos automatizados</h4><p>Procurações, documentos de habilitação e peças padronizadas geradas a partir do cadastro.</p></div>
+        <div><h4>Base de clientes</h4><p>Cadastro, consulta e emissão de relatórios num lugar só.</p></div>
+        <div><h4>Integração com Office</h4><p>VBA e macros para padronizar arquivos e cortar o retrabalho da rotina.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="secSkills">
+    <div class="track label">[ competências ]</div>
+    <div class="head"><h2>O que eu faço</h2></div>
+    <div class="skills">
+      <div><h4>Rotina jurídica</h4><p>Petições diversas e minutas, processos administrativos e sindicâncias, pesquisa jurídica, análise documental, controle de prazos, precatórios e habilitação de herdeiros.</p></div>
+      <div><h4>Sistemas de tribunais</h4><p>Trânsito nos principais sistemas processuais: e-SAJ, PJe, eproc e Projudi, além de Legal One, Verifact e DataCertify. Administrador do Doc9.</p></div>
+      <div><h4>Automação de rotinas</h4><p>Pacote Office em nível avançado, com automações em Excel e VBA e fluxos criados no Outlook e no Teams. Bancos de dados, relatórios gerenciais, Power BI e SQL básico.</p></div>
+      <div><h4>Leitura de processos internos</h4><p>Análise crítica dos gargalos operacionais de um escritório para desenhar o sistema que resolve — o diagnóstico antes da ferramenta.</p></div>
+      <div><h4>Desenvolvimento</h4><p>Desenvolvimento web, bots e integração de APIs. Noções de C++, JavaScript e Java.</p></div>
+      <div><h4>Inteligência artificial aplicada</h4><p>Uso de IA na análise de documentos e na organização de informação, com atenção ao modo de alimentar o modelo: o resultado depende do que entra.</p></div>
+    </div>
+    <details>
+      <summary class="track">Ver cursos e formação complementar</summary>
+      <div class="cursos">
+        <div><h4>Direito e prática processual</h4>
+          <ul><li>Processo Judicial Eletrônico (PJe) — CNJ</li><li>Direito Médico e Responsabilidade Civil</li>
+          <li>Direito Previdenciário — benefícios do INSS</li><li>Direito Processual Civil — o CPC na prática</li>
+          <li>Redação e técnica jurídica</li><li>Direito Digital e LGPD aplicada — FGV</li>
+          <li>LGPD — Fundação Bradesco</li></ul></div>
+        <div><h4>Tecnologia e dados</h4>
+          <ul><li>Formação complementar em inteligência artificial</li><li>Ferramentas de IA para análise de documentos</li>
+          <li>Soluções em Excel para empresas — São Judas</li><li>Power BI e SQL — fundamentos e relatórios</li>
+          <li>Algoritmos e SharePoint</li></ul></div>
+        <div><h4>Gestão e comunicação</h4>
+          <ul><li>Gestão de documentos e ética no serviço público — ENAP</li><li>Comunicação assertiva</li></ul></div>
+      </div>
+    </details>
+  </section>
+
+  <section class="section" id="secTextos">
+    <div class="track label">[ textos ]</div>
+    <div class="head"><h2>O que ando escrevendo</h2><span class="track" id="count"></span></div>
+    <div class="cards" id="cards"></div>
+  </section>
+
+  <section class="section" id="secContato">
+    <div class="track label">[ contato ]</div>
+    <div class="head"><h2>Vamos conversar</h2></div>
+    <div class="prosa"><p>Aberto a conversas sobre estágio, projetos jurídicos e automação de rotina de escritório.</p></div>
+    <div class="contato">
+      <div><span class="k track">E-mail</span><a href="mailto:daniloramblas@gmail.com">daniloramblas@gmail.com</a></div>
+      <div><span class="k track">Telefone</span><a href="tel:+5511982663117">(11) 98266-3117</a></div>
+      <div><span class="k track">LinkedIn</span><a href="https://linkedin.com/in/daniloramblas" target="_blank" rel="noopener">/in/daniloramblas</a></div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== LEITURA ===================== -->
+<main id="viewReader" class="hidden">
+  <div class="reader">
+    <button class="back" id="back">← Voltar</button>
+    <h1 id="rTitle"></h1>
+    <div class="track" id="rMeta"></div>
+    <img id="rCover" class="cover hidden" alt="">
+    <div class="body" id="rBody"></div>
+  </div>
+</main>
+
+<!-- ===================== PAINEL ===================== -->
+<main id="viewAdmin" class="hidden">
+  <div class="admin">
+    <div class="track">[ privado ]</div>
+    <h2>Painel de publicação</h2>
+    <p class="lede">Escreva, salve e publique. O que estiver publicado aparece na seção Textos.</p>
+    <div class="cols">
+      <div>
+        <div class="field"><label for="fTitle">Título</label><input id="fTitle" placeholder="Ex.: O que aprendi automatizando procurações"></div>
+        <div class="field"><label for="fSummary">Resumo</label><input id="fSummary" placeholder="Uma frase que faça a pessoa querer abrir"></div>
+        <div class="field"><label for="fCover">Link da imagem de capa</label><input id="fCover" placeholder="https://… (opcional)"></div>
+        <div class="field"><label for="fBody">Texto</label><textarea id="fBody" placeholder="Deixe uma linha em branco entre os parágrafos."></textarea></div>
+        <div class="field"><label for="fStatus">Situação</label>
+          <select id="fStatus"><option value="published">Publicado</option><option value="draft">Rascunho</option></select></div>
+        <div class="actions">
+          <button class="pill solid" id="save">Salvar texto</button>
+          <button class="pill" id="clear">Novo texto</button>
+          <span class="status" id="status"></span>
+        </div>
+      </div>
+      <div>
+        <div class="track label">[ guardados ]</div>
+        <div id="manage"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <span class="track">Danilo Ramblas · São Paulo, SP</span>
+  <span class="track">Protótipo — dados salvos no navegador</span>
+</footer>
+
+<script>
+/* ==================================================================
+   CAMADA DE DADOS — troque só estas duas funções para usar Supabase
+================================================================== */
+const CHAVE='blog:posts';
+async function carregar(){
+  try{ if(window.storage){const r=await window.storage.get(CHAVE,false);return r&&r.value?JSON.parse(r.value):null;}
+    const b=localStorage.getItem(CHAVE);return b?JSON.parse(b):null; }catch(e){return null;}
+}
+async function gravar(d){
+  try{ const t=JSON.stringify(d);
+    if(window.storage){await window.storage.set(CHAVE,t,false);return true;}
+    localStorage.setItem(CHAVE,t);return true; }catch(e){return false;}
+}
+/* ================================================================== */
+
+const exemplos=[
+  { id:'ex1', titulo:'O escritório não precisa de mais horas, precisa de menos retrabalho',
+    resumo:'Sobre o que descobri contando quanto tempo ia embora refazendo o mesmo documento.',
+    capa:'', status:'published', data:'2026-08-14',
+    corpo:'Toda tarefa repetitiva tem duas partes: a decisão e a digitação.\n\nA digitação é a parte que a máquina faz melhor. A decisão continua sendo do advogado, e deveria continuar sendo, porque é ali que mora o critério.\n\nO erro comum é automatizar a decisão junto e só perceber quando algo sai errado e ninguém sabe explicar por quê.' },
+  { id:'ex2', titulo:'Aprender a programar depois de aprender o problema',
+    resumo:'Comecei pelo lado avesso: primeiro a dor da rotina, depois a ferramenta.',
+    capa:'', status:'published', data:'2026-06-28',
+    corpo:'Quem aprende a programar antes de ter um problema constrói coisas bonitas que ninguém usa.\n\nNo meu caso foi o contrário. A procuração que eu refazia toda semana virou o primeiro sistema.\n\nO código ficou pior do que ficaria se eu tivesse estudado antes. Mas resolveu, e isso é o que um escritório mede.' }
+];
+
+let posts=[], editando=null;
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fmt=iso=>{const[a,m,d]=iso.split('-');
+  return `${d} de ${['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'][+m-1]} de ${a}`;};
+
+function ver(q){['viewPublic','viewReader','viewAdmin'].forEach(v=>$(v).classList.add('hidden'));
+  $(q).classList.remove('hidden'); $('navAdmin').classList.toggle('on',q==='viewAdmin'); window.scrollTo(0,0);}
+function irPara(sec){ver('viewPublic');setTimeout(()=>$(sec).scrollIntoView({behavior:'smooth',block:'start'}),40);}
+function publicados(){return posts.filter(p=>p.status==='published').sort((a,b)=>b.data.localeCompare(a.data));}
+
+function renderCards(){
+  const p=publicados();
+  $('count').textContent=p.length?`${p.length} publicados`:'';
+  if(!p.length){$('cards').innerHTML='<div class="empty">Nada publicado ainda. Abra o painel e escreva o primeiro.</div>';return;}
+  $('cards').innerHTML=p.map(x=>`
+    <button class="card" data-id="${x.id}">
+      <div class="thumb">${x.capa?`<img src="${esc(x.capa)}" alt="">`:'sem imagem'}</div>
+      <div class="track">${fmt(x.data)}</div>
+      <h3>${esc(x.titulo)}</h3>
+      <p>${esc(x.resumo||'')}</p>
+    </button>`).join('');
+  document.querySelectorAll('.card').forEach(c=>c.addEventListener('click',()=>abrir(c.dataset.id)));
+}
+
+function renderPainel(){
+  if(!posts.length){$('manage').innerHTML='<div class="empty">Nenhum texto guardado.</div>';return;}
+  $('manage').innerHTML=posts.slice().sort((a,b)=>b.data.localeCompare(a.data)).map(p=>`
+    <div class="item">
+      <div><h4>${esc(p.titulo)}</h4>
+        <small>${fmt(p.data)} — <span class="${p.status==='draft'?'draft':''}">${p.status==='draft'?'rascunho':'publicado'}</span></small></div>
+      <div class="row-btns">
+        <button class="mini" data-edit="${p.id}">Editar</button>
+        <button class="mini" data-del="${p.id}">Excluir</button></div>
+    </div>`).join('');
+  document.querySelectorAll('[data-edit]').forEach(b=>b.addEventListener('click',()=>editar(b.dataset.edit)));
+  document.querySelectorAll('[data-del]').forEach(b=>b.addEventListener('click',()=>excluir(b.dataset.del)));
+}
+
+function abrir(id){
+  const p=posts.find(x=>x.id===id); if(!p)return;
+  $('rTitle').textContent=p.titulo; $('rMeta').textContent=fmt(p.data);
+  const c=$('rCover'); if(p.capa){c.src=p.capa;c.classList.remove('hidden');}else c.classList.add('hidden');
+  $('rBody').innerHTML=p.corpo.split(/\n\s*\n/).map(t=>`<p>${esc(t)}</p>`).join('');
+  ver('viewReader');
+}
+function editar(id){
+  const p=posts.find(x=>x.id===id); if(!p)return;
+  editando=id; $('fTitle').value=p.titulo; $('fSummary').value=p.resumo||'';
+  $('fCover').value=p.capa||''; $('fBody').value=p.corpo; $('fStatus').value=p.status;
+  $('status').textContent='Editando um texto existente'; ver('viewAdmin'); $('fTitle').focus();
+}
+async function excluir(id){
+  const p=posts.find(x=>x.id===id);
+  if(!p||!confirm(`Excluir "${p.titulo}"? Não dá para desfazer.`))return;
+  posts=posts.filter(x=>x.id!==id); if(editando===id)limpar();
+  await gravar(posts); tudo(); $('status').textContent='Texto excluído';
+}
+function limpar(){editando=null;['fTitle','fSummary','fCover','fBody'].forEach(i=>$(i).value='');
+  $('fStatus').value='published';$('status').textContent='';}
+async function salvar(){
+  const titulo=$('fTitle').value.trim();
+  if(!titulo){$('status').textContent='Falta o título';$('fTitle').focus();return;}
+  const d={titulo,resumo:$('fSummary').value.trim(),capa:$('fCover').value.trim(),
+    corpo:$('fBody').value.trim(),status:$('fStatus').value};
+  if(editando)posts=posts.map(p=>p.id===editando?{...p,...d}:p);
+  else posts.push({id:'p'+Date.now(),data:new Date().toISOString().slice(0,10),...d});
+  const ok=await gravar(posts); tudo();
+  $('status').textContent=ok?(d.status==='draft'?'Salvo como rascunho':'Publicado'):'Não foi possível salvar';
+  limpar();
+}
+function tudo(){renderCards();renderPainel();}
+
+document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>irPara(b.dataset.go)));
+$('navHome').addEventListener('click',()=>ver('viewPublic'));
+$('navAdmin').addEventListener('click',()=>ver('viewAdmin'));
+$('back').addEventListener('click',()=>ver('viewPublic'));
+$('save').addEventListener('click',salvar);
+$('clear').addEventListener('click',()=>{limpar();$('fTitle').focus();});
+
+(async()=>{const s=await carregar();posts=(s&&s.length)?s:exemplos;tudo();})();
+</script>
+</body>
+</html>
