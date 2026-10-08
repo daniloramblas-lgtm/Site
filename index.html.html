@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Danilo Ramblas — Direito, Automação & Dados</title>
+  <meta name="description" content="Portfólio de Danilo Ramblas. Estudante de Direito e operador prático da rotina de sinistros médicos, cíveis e criminais. Automação forense, dados e arquitetura de rotinas.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Newsreader', 'Georgia', 'serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            paper: '#FBF9F5',
+            'paper-subtle': '#F5F3EF',
+            'paper-card': '#EDEBE6',
+            'ink-primary': '#1A1A18',
+            'ink-muted': '#6B6862',
+            'ink-border': '#DDD9D0',
+            'accent-crimson': '#9E2A2B',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background-color: #FBF9F5; color: #1A1A18; }
+    ::selection { background: #1A1A18; color: #FBF9F5; }
+  </style>
+</head>
+<body class="font-sans antialiased text-ink-primary bg-paper min-h-screen selection:bg-ink-primary selection:text-paper">
+
+  <!-- Header / Nav -->
+  <header class="sticky top-0 z-50 bg-paper/90 backdrop-blur-md border-b border-ink-border/60 transition-all">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-6">
+        <div>
+          <a href="#" class="font-serif text-2xl font-semibold tracking-tight text-ink-primary hover:opacity-80 transition-opacity">Danilo Ramblas</a>
+          <p class="font-mono text-[10px] tracking-wider text-ink-muted uppercase">São Paulo, SP · 2026 · USJT</p>
+        </div>
+      </div>
+      
+      <nav class="hidden md:flex items-center gap-8 font-mono text-xs uppercase tracking-wider text-ink-muted">
+        <a href="#sobre" class="hover:text-ink-primary transition-colors">Sobre</a>
+        <a href="#showcase" class="hover:text-ink-primary transition-colors">Ramblas Legal</a>
+        <a href="#trajetoria" class="hover:text-ink-primary transition-colors">Trajetória</a>
+        <a href="#habilidades" class="hover:text-ink-primary transition-colors">Competências</a>
+        <a href="#contato" class="hover:text-ink-primary transition-colors">Contato</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="#contato" class="inline-flex items-center justify-center px-4 py-2 text-xs font-mono tracking-wider uppercase bg-ink-primary text-paper rounded hover:bg-neutral-800 transition-colors">
+          Falar Comigo
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="max-w-7xl mx-auto px-6 md:px-12 pt-16 md:pt-24 pb-20">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start border-b border-ink-border pb-20">
+      
+      <div class="lg:col-span-7 space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-paper-subtle border border-ink-border rounded-full">
+          <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+          <span class="font-mono text-xs text-ink-muted tracking-wide">Dossiê & Portfólio Ativo · 2026</span>
+        </div>
+        
+        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal leading-[1.12] text-ink-primary tracking-tight">
+          A rotina não precisa ser refeita todo dia.
+        </h1>
+        
+        <p class="text-base sm:text-lg text-ink-muted font-sans font-normal leading-relaxed max-w-2xl">
+          Estudante de Direito na São Judas e operador prático da rotina de sinistros médicos, cíveis e criminais. Trabalho diariamente com petições, processos administrativos, sindicâncias e prazos — enquanto arquiteto e programo os sistemas que suprimem a latência e o erro manual das bancas jurídicas.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-4 pt-4">
+          <a href="#showcase" class="px-5 py-3 bg-ink-primary text-paper font-mono text-xs uppercase tracking-wider rounded hover:bg-neutral-800 transition-colors inline-flex items-center gap-2">
+            <span>Ver Arquitetura Ramblas Legal</span>
+            <span>↓</span>
+          </a>
+          <a href="#trajetoria" class="px-5 py-3 bg-paper-subtle border border-ink-border text-ink-primary font-mono text-xs uppercase tracking-wider rounded hover:bg-paper-card transition-colors">
+            Ver Trajetória
+          </a>
+          <a href="https://linkedin.com/in/daniloramblas" target="_blank" rel="noopener noreferrer" class="px-4 py-3 text-ink-muted hover:text-ink-primary font-mono text-xs uppercase tracking-wider transition-colors inline-flex items-center gap-1">
+            LinkedIn ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- Live Metric Cards -->
+      <div class="lg:col-span-5 grid grid-cols-1 gap-4">
+        
+        <div class="p-6 bg-paper-subtle border border-ink-border rounded-lg relative overflow-hidden group hover:border-ink-primary transition-colors">
+          <div class="flex items-center justify-between mb-3">
+            <span class="font-mono text-[11px] uppercase tracking-wider text-ink-muted">Comunidade & Bots</span>
+            <span class="text-xs text-ink-muted">👥</span>
+          </div>
+          <div class="font-serif text-4xl text-ink-primary font-normal mb-2">+5.000</div>
+          <p class="text-xs text-ink-muted leading-relaxed">
+            Membros geridos de modo autônomo com integrações automatizadas, webhooks e moderação algorítmica.
+          </p>
+        </div>
+
+        <div class="p-6 bg-paper-subtle border border-ink-border rounded-lg relative overflow-hidden group hover:border-ink-primary transition-colors">
+          <div class="flex items-center justify-between mb-3">
+            <span class="font-mono text-[11px] uppercase tracking-wider text-ink-muted">Heurística Levenshtein</span>
+            <span class="text-xs text-emerald-600">✓</span>
+          </div>
+          <div class="font-serif text-4xl text-ink-primary font-normal mb-2">> 75%</div>
+          <p class="text-xs text-ink-muted leading-relaxed">
+            Limiar para arquivamento autônomo assistido. Supervisão humana instantânea acionada abaixo da margem.
+          </p>
+        </div>
+
+        <div class="p-6 bg-paper-subtle border border-ink-border rounded-lg relative overflow-hidden group hover:border-ink-primary transition-colors">
+          <div class="flex items-center justify-between mb-3">
+            <span class="font-mono text-[11px] uppercase tracking-wider text-ink-muted">Integração Processual</span>
+            <span class="text-xs text-ink-muted">⚖️</span>
+          </div>
+          <div class="font-serif text-4xl text-ink-primary font-normal mb-2">4+ Sistemas</div>
+          <p class="text-xs text-ink-muted leading-relaxed">
+            Trânsito assíduo em e-SAJ, PJe, eproc e Projudi, com administração corporativa no Doc9.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Seção Sobre / Fundamentos -->
+    <section id="sobre" class="py-20 border-b border-ink-border">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div class="lg:col-span-4">
+          <span class="font-mono text-xs uppercase tracking-widest text-ink-muted">[ 02 · Fundamentos & Síntese ]</span>
+          <h2 class="font-serif text-3xl font-medium mt-3 mb-6">Quem escreve aqui</h2>
+        </div>
+        <div class="lg:col-span-8 space-y-6 text-base text-ink-muted leading-relaxed">
+          <p>
+            Comecei no previdenciário, conferindo laudos e controlando prazos. Passei pelo direito público, com habilitação de herdeiros e precatórios, e hoje trabalho com direito médico, cível e criminal numa seguradora de relevância nacional.
+          </p>
+          <p>
+            Em todos esses lugares a conta era rigorosamente parecida: boa parte do dia útil escorria em tarefas mecânicas que o computador orquestraria em frações de segundo. Aprendi a programar por esse motivo, não pelo oposto — <strong class="text-ink-primary font-medium">primeiro veio a fricção forense, depois o código</strong>.
+          </p>
+          <p>
+            O que mobiliza minha pesquisa é o cruzamento pragmático dos dois polos: usar tecnologia estrita para devolver à mente jurídica o luxo inegociável de pensar a estratégia.
+          </p>
+          <div class="p-5 bg-paper-subtle border-l-2 border-ink-primary rounded-r">
+            <p class="font-mono text-xs text-ink-primary leading-normal">
+              A PROMESSA INDISSOCIÁVEL: A máquina processa, indexa e padroniza os fluxos; o critério dogmático, a valoração fática e a responsabilidade civil continuam estritamente sob comando humano.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Showcase Interativo com Scroll Storytelling: Ramblas Legal -->
+    <section id="showcase" class="py-20 border-b border-ink-border">
+      <div class="mb-12">
+        <span class="font-mono text-xs uppercase tracking-widest text-ink-muted">[ Showcase de Engenharia · Dynamic Storytelling ]</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-medium mt-2">Ramblas Legal & Arquitetura de Automação</h2>
+        <p class="text-sm text-ink-muted mt-2 max-w-2xl">
+          Role para baixo e acompanhe a metamorfose do motor operacional: desde a ingestão de petição judicial até o cálculo de similaridade Levenshtein, fixação SHA-256 e a geração de minutas automatizadas.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Lista de Fases do Motor -->
+        <div class="lg:col-span-6 space-y-6">
+          
+          <div class="p-6 bg-paper-subtle border-2 border-ink-primary rounded-lg transition-all shadow-sm">
+            <span class="font-mono text-[11px] uppercase tracking-wider text-ink-muted block mb-1">● Fase 01 · Ingestão</span>
+            <h3 class="font-serif text-xl font-medium text-ink-primary mb-2">Input & Intake Unificado</h3>
+            <p class="text-sm text-ink-muted leading-relaxed">
+              Captura imediata de notificações dos tribunais (e-SAJ, PJe, Projudi) e mensagens de sinistro via caixa do Outlook. A triagem classifica assuntos, numeração de CNJ e anexa metadados do segurado sem intervenção manual.
+            </p>
+            <div class="mt-4 flex gap-2 font-mono text-[10px] text-ink-muted">
+              <span class="px-2 py-1 bg-paper border border-ink-border rounded">IMAP/Exchange</span>
+              <span class="px-2 py-1 bg-paper border border-ink-border rounded">Regex CNJ</span>
+              <span class="px-2 py-1 bg-paper border border-ink-border rounded">Doc9 Ingest</span>
+            </div>
+          </div>
+
+          <div class="p-6 bg-paper-subtle border border-ink-border rounded-lg hover:border-ink-primary transition-all">
+            <span class="font-mono text-[11px] uppercase tracking-wider text-ink-muted block mb-1">● Fase 02 · Algoritmo</span>
+            <h3 class="font-serif text-xl font-medium text-ink-primary mb-2">Motor Heurístico Levenshtein</h3>
+            <p class="text-sm text-ink-muted leading-relaxed">
+              O motor calcula a distância vetorial entre as strings do e-mail e a árvore cadastral de clientes. Se a similaridade ultrapassar 75%, o arquivamento ocorre em segundo plano. Abaixo de 75%, 3 candidatos são sugeridos para auditoria humana imediata.
+            </p>
+            <div class="mt-4 flex gap-2 font-mono text-[10px] text-ink-muted">
+              <span class="px-2 py-1 bg-paper border border-ink-border rounded">Token Weights</span>
+              <span class="px-2 py-1 bg-paper border border-ink-border rounded">Fuzzy Match</span>
+              <span class="px-2 py-1 bg-paper border border-ink-border rounded">Safety Lock</span>
+            </div>
+          </div>
+
+          <div class="p-6 bg-paper-subtle border border-ink-border rounded-lg hover:border-ink-primary transition-all">
+            <span class="font-mono text-[11px] uppercase tracking-wider text-ink-muted block mb-1">● Fase 03 · Rastreabilidade</span>
+            <h3 class="font-serif text-xl font-medium text-ink-primary mb-2">Cadeia de Evidências SHA-256</h3>
+            <p class="text-sm text-ink-muted leading-relaxed">
+              Para assegurar a idoneidade probatória perante sindicâncias e corregedorias, cada movimentação de arquivo é assinada por um hash SHA-256 encadeado sequencialmente. Nenhuma data ou conteúdo pode ser alterado retroativamente.
+            </p>
+            <div class="mt-4 flex gap-2 font-mono text-[10px] text-ink-muted">
+              <span class="px-2 py-1 bg-paper border border-ink-border rounded">SHA-256 Digest</span>
+              <span class="px-2 py-1 bg-paper border border-ink-border rounded">Audit Ledger</span>
+              <span class="px-2 py-1 bg-paper border border-ink-border rounded">Non-Repudiation</span>
+            </div>
+          </div>
+
+          <div class="p-6 bg-paper-subtle border border-ink-border rounded-lg hover:border-ink-primary transition-all">
+            <span class="font-mono text-[11px] uppercase tracking-wider text-ink-muted block mb-1">● Fase 04 · Saída</span>
+            <h3 class="font-serif text-xl font-medium text-ink-primary mb-2">Geração Automatizada de Peças</h3>
+            <p class="text-sm text-ink-muted leading-relaxed">
+              Com as variáveis sanadas e validadas, macros integradas em VBA e scripts de automação geram peças completas: habilitações de herdeiros, minutas de defesa de ato médico, termos de sinistro e requerimentos padronizados.
+            </p>
+            <div class="mt-4 flex gap-2 font-mono text-[10px] text-ink-muted">
+              <span class="px-2 py-1 bg-paper border border-ink-border rounded">VBA Automation</span>
+              <span class="px-2 py-1 bg-paper border border-ink-border rounded">Word XML</span>
+              <span class="px-2 py-1 bg-paper border border-ink-border rounded">Instant Protocol</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Painel Simulador da Minuta Jurídica -->
+        <div class="lg:col-span-6 sticky top-28 bg-paper border border-ink-border rounded-lg shadow-sm p-6 overflow-hidden">
+          <div class="flex items-center justify-between border-b border-ink-border pb-3 mb-4">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-neutral-300"></span>
+              <span class="w-3 h-3 rounded-full bg-neutral-300"></span>
+              <span class="w-3 h-3 rounded-full bg-neutral-300"></span>
+              <span class="font-mono text-xs text-ink-muted ml-2">ramblas-legal-core // runtime</span>
+            </div>
+            <span class="font-mono text-[11px] px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-medium">Pronto para assinatura</span>
+          </div>
+
+          <div class="font-mono text-xs bg-paper-subtle p-6 rounded border border-ink-border text-ink-primary space-y-4">
+            <div class="text-[10px] uppercase text-ink-muted border-b border-ink-border pb-2 flex justify-between">
+              <span>PRODUÇÃO FORENSE FINAL</span>
+              <span>Minuta & Procuração Padronizadas</span>
+            </div>
+
+            <div class="text-center font-serif text-sm font-semibold tracking-wide py-2">
+              EXCELENTÍSSIMO SENHOR DOUTOR JUIZ DE DIREITO
+            </div>
+
+            <p class="text-[11px] leading-relaxed text-ink-muted text-justify">
+              <strong class="text-ink-primary">FORZA SEGUROS S.A.</strong>, já qualificada nos autos da <span class="underline">AÇÃO DE REPARAÇÃO DE DANOS C/C PEDIDO DE COBERTURA</span> securitária em epígrafe, promovida em face de ato médico, vem respeitosamente à presença de Vossa Excelência requerer a juntada de quesitos periciais e documentos saneados...
+            </p>
+
+            <div class="bg-paper p-3 rounded border border-ink-border font-mono text-[10px] space-y-1">
+              <div class="flex justify-between text-ink-muted">
+                <span>HASH DE INTEGRIDADE:</span>
+                <span class="text-ink-primary">e3b0c44298fc1c149afbf4c8...</span>
+              </div>
+              <div class="flex justify-between text-ink-muted">
+                <span>VEREDITO HEURÍSTICO:</span>
+                <span class="text-emerald-700 font-semibold">91.4% Confiança (Arquivado)</span>
+              </div>
+              <div class="flex justify-between text-ink-muted">
+                <span>LATÊNCIA DE PRODUÇÃO:</span>
+                <span class="text-ink-primary">0.12s</span>
+              </div>
+            </div>
+
+            <div class="pt-2 flex items-center justify-between">
+              <span class="text-[10px] text-ink-muted">Engine: Geração Automatizada de Petições Concluída</span>
+              <span class="font-mono text-[10px] bg-ink-primary text-paper px-3 py-1 rounded">EXPORTAR MINUTA (.DOCX)</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Trajetória Forense -->
+    <section id="trajetoria" class="py-20 border-b border-ink-border">
+      <div class="mb-12">
+        <span class="font-mono text-xs uppercase tracking-widest text-ink-muted">[ 03 · Cronologia Forense ]</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-medium mt-2">Onde passei</h2>
+        <p class="text-sm text-ink-muted mt-1">Do mais recente ao primeiro marco da carreira</p>
+      </div>
+
+      <div class="space-y-8">
+        
+        <div class="p-8 bg-paper-subtle border border-ink-border rounded-lg">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <h3 class="font-serif text-2xl font-medium text-ink-primary">Forza Seguros</h3>
+            <span class="font-mono text-xs px-2.5 py-1 bg-emerald-100 text-emerald-800 rounded font-semibold uppercase">Atual · São Paulo, SP</span>
+          </div>
+          <h4 class="font-mono text-xs uppercase tracking-wider text-ink-muted mb-4">Direito Médico, Cível e Criminal</h4>
+          <p class="text-sm text-ink-muted leading-relaxed mb-4">
+            Petições diversas, pesquisa jurídica meticulosa e controle estratégico de prazos. Atuação direta em processos administrativos e sindicâncias de ato médico, análise documental preliminar para avaliação de cobertura, abertura de sinistros complexos e atendimento contínuo a médicos segurados.
+          </p>
+          <p class="text-sm text-ink-muted leading-relaxed mb-4">
+            Atuo como <strong>administrador do sistema Doc9</strong> no escritório e respondo pela solicitação de inscrições suplementares na OAB perante múltiplos seccionais — atribuições de alta exigência em sigilo e governança de acessos. Paralelamente, concebo e implemento as automações que padronizam o fluxo interno.
+          </p>
+          <div class="flex flex-wrap gap-2 font-mono text-[11px] text-ink-muted">
+            <span class="px-2 py-1 bg-paper border border-ink-border rounded">Direito Médico</span>
+            <span class="px-2 py-1 bg-paper border border-ink-border rounded">Sindicâncias CRM</span>
+            <span class="px-2 py-1 bg-paper border border-ink-border rounded">Admin Doc9</span>
+            <span class="px-2 py-1 bg-paper border border-ink-border rounded">OAB Suplementar</span>
+            <span class="px-2 py-1 bg-paper border border-ink-border rounded">VBA Office</span>
+          </div>
+        </div>
+
+        <div class="p-8 bg-paper-subtle border border-ink-border rounded-lg">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <h3 class="font-serif text-2xl font-medium text-ink-primary">Scolari Neto & Oliveira Filho Advogados</h3>
+            <span class="font-mono text-xs text-ink-muted uppercase">Banca Cível & Pública</span>
+          </div>
+          <h4 class="font-mono text-xs uppercase tracking-wider text-ink-muted mb-4">Direito Público e Habilitação de Herdeiros</h4>
+          <p class="text-sm text-ink-muted leading-relaxed mb-4">
+            Elaboração e protocolo sistemático de petições no TJSP e no portal e-SAJ, saneamento de acervos processuais e apoio técnico a cumprimentos de sentença contra a Fazenda Pública. Conferência de árvores genealógicas e percentuais hereditários, acompanhando cálculos de liquidação de precatórios judiciais.
+          </p>
+          <div class="flex flex-wrap gap-2 font-mono text-[11px] text-ink-muted">
+            <span class="px-2 py-1 bg-paper border border-ink-border rounded">TJSP / e-SAJ</span>
+            <span class="px-2 py-1 bg-paper border border-ink-border rounded">Habilitação de Herdeiros</span>
+            <span class="px-2 py-1 bg-paper border border-ink-border rounded">Precatórios</span>
+            <span class="px-2 py-1 bg-paper border border-ink-border rounded">Cumprimento de Sentença</span>
+          </div>
+        </div>
+
+        <div class="p-8 bg-paper-subtle border border-ink-border rounded-lg">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <h3 class="font-serif text-2xl font-medium text-ink-primary">Caíque Castro Sociedade de Advocacia</h3>
+            <span class="font-mono text-xs text-ink-muted uppercase">Banca Cível & Previdenciária</span>
+          </div>
+          <h4 class="font-mono text-xs uppercase tracking-wider text-ink-muted mb-4">Direito Previdenciário Estratégico</h4>
+          <p class="text-sm text-ink-muted leading-relaxed mb-4">
+            Confecção de petições iniciais, manifestações a laudos e pedidos de dilação temporal, fiscalizando processos em comarcas federadas distintas. Auditoria e confrontação de laudos periciais médicos para subsidiar benefícios por incapacidade e aposentadorias especiais.
+          </p>
+          <div class="flex flex-wrap gap-2 font-mono text-[11px] text-ink-muted">
+            <span class="px-2 py-1 bg-paper border border-ink-border rounded">Ato Federal</span>
+            <span class="px-2 py-1 bg-paper border border-ink-border rounded">Laudos Periciais</span>
+            <span class="px-2 py-1 bg-paper border border-ink-border rounded">Controle de Prazos</span>
+          </div>
+        </div>
+
+        <div class="p-8 bg-paper-subtle border border-ink-border rounded-lg">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <h3 class="font-serif text-2xl font-medium text-ink-primary">MLR Advogados</h3>
+            <span class="font-mono text-xs text-ink-muted uppercase">Início da Carreira</span>
+          </div>
+          <h4 class="font-mono text-xs uppercase tracking-wider text-ink-muted mb-4">Direito Previdenciário — Onde Tudo Começou</h4>
+          <p class="text-sm text-ink-muted leading-relaxed mb-4">
+            Início da experiência forense prática: triagem de viabilidade, cálculo de tempo de contribuição e verificação de requisitos perante o INSS. Pesquisa doutrinária e jurisprudencial em profundidade e saneamento de acervos documentais.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Habilidades & Competências -->
+    <section id="habilidades" class="py-20 border-b border-ink-border">
+      <div class="mb-12">
+        <span class="font-mono text-xs uppercase tracking-widest text-ink-muted">[ 04 · Matriz de Habilidades ]</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-medium mt-2">O que eu faço</h2>
+        <p class="text-sm text-ink-muted mt-1">Convergência entre prática contenciosa, auditoria e automação aplicada</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <div class="p-6 bg-paper-subtle border border-ink-border rounded-lg space-y-3">
+          <div class="font-mono text-xs text-ink-muted uppercase tracking-wider">⚖️ Rotina Jurídica</div>
+          <p class="text-sm text-ink-muted leading-relaxed">
+            Petições diversas, minutas de resposta, condução de processos administrativos e sindicâncias de ato médico, pesquisa jurídica em repositórios jurisprudenciais e liquidação de herdeiros em precatórios.
+          </p>
+        </div>
+
+        <div class="p-6 bg-paper-subtle border border-ink-border rounded-lg space-y-3">
+          <div class="font-mono text-xs text-ink-muted uppercase tracking-wider">💻 Sistemas Processuais</div>
+          <p class="text-sm text-ink-muted leading-relaxed">
+            Trânsito assíduo em todos os polos forenses: e-SAJ, PJe (CNJ/TRF), eproc e Projudi, com uso de Legal One, Verifact e DataCertify para produção probatória de evidências digitais. Administrador do Doc9.
+          </p>
+        </div>
+
+        <div class="p-6 bg-paper-subtle border border-ink-border rounded-lg space-y-3">
+          <div class="font-mono text-xs text-ink-muted uppercase tracking-wider">&lt; / &gt; Automação de Rotinas</div>
+          <p class="text-sm text-ink-muted leading-relaxed">
+            Macros avançadas em Excel e VBA para padronização documental, scripts no Outlook para triagem de e-mails, fluxos integrados no Microsoft Teams, consultas SQL e dashboards em Power BI.
+          </p>
+        </div>
+
+        <div class="p-6 bg-paper-subtle border border-ink-border rounded-lg space-y-3">
+          <div class="font-mono text-xs text-ink-muted uppercase tracking-wider">🔍 Leitura de Processos Internos</div>
+          <p class="text-sm text-ink-muted leading-relaxed">
+            Mapeamento clínico dos gargalos operacionais do escritório de advocacia para estruturar o remédio tecnológico exato — o diagnóstico dogmático antes de qualquer linha de programação.
+          </p>
+        </div>
+
+        <div class="p-6 bg-paper-subtle border border-ink-border rounded-lg space-y-3">
+          <div class="font-mono text-xs text-ink-muted uppercase tracking-wider">🤖 IA Jurídica Aplicada</div>
+          <p class="text-sm text-ink-muted leading-relaxed">
+            Emprego responsável de modelos de linguagem para extração de dados e síntese de relatórios periciais. Atenção ao modo de alimentar o modelo: a qualidade do output é função direta da clareza do input.
+          </p>
+        </div>
+
+        <div class="p-6 bg-paper-subtle border border-ink-border rounded-lg space-y-3">
+          <div class="font-mono text-xs text-ink-muted uppercase tracking-wider">🌐 Infra & Comunidades</div>
+          <p class="text-sm text-ink-muted leading-relaxed">
+            Gestão autônoma prévia de ecossistema de +5.000 membros no Discord e redes sociais, arquitetando bots, webhooks e automação de pagamentos.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="py-20">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div class="lg:col-span-5 space-y-6">
+          <span class="font-mono text-xs uppercase tracking-widest text-ink-muted">[ 05 · Correspondência Direta ]</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-medium">Vamos conversar</h2>
+          <p class="text-sm text-ink-muted leading-relaxed">
+            Aberto a interlocuções sobre oportunidades de estágio avançado, consultorias pontuais de engenharia jurídica para escritórios e projetos de automação de fluxo forense.
+          </p>
+
+          <div class="space-y-4 pt-4">
+            <a href="mailto:daniloramblas@gmail.com" class="flex items-center gap-3 p-4 bg-paper-subtle border border-ink-border rounded hover:border-ink-primary transition-colors">
+              <span class="font-mono text-xs uppercase text-ink-muted">E-mail:</span>
+              <span class="font-mono text-sm text-ink-primary">daniloramblas@gmail.com</span>
+            </a>
+            <a href="tel:+5511982663117" class="flex items-center gap-3 p-4 bg-paper-subtle border border-ink-border rounded hover:border-ink-primary transition-colors">
+              <span class="font-mono text-xs uppercase text-ink-muted">WhatsApp / Tel:</span>
+              <span class="font-mono text-sm text-ink-primary">(11) 98266-3117</span>
+            </a>
+            <a href="https://linkedin.com/in/daniloramblas" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-4 bg-paper-subtle border border-ink-border rounded hover:border-ink-primary transition-colors">
+              <span class="font-mono text-xs uppercase text-ink-muted">LinkedIn:</span>
+              <span class="font-mono text-sm text-ink-primary">linkedin.com/in/daniloramblas ↗</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7">
+          <form class="p-8 bg-paper-subtle border border-ink-border rounded-lg space-y-6" onsubmit="event.preventDefault(); alert('Mensagem pronta para envio!');">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label class="font-mono text-xs uppercase text-ink-muted block">Seu Nome / Banca Jurídica</label>
+                <input type="text" placeholder="Ex: Dra. Marina Queiroz" class="w-full px-4 py-3 bg-paper border border-ink-border rounded text-sm text-ink-primary focus:outline-none focus:border-ink-primary">
+              </div>
+              <div class="space-y-2">
+                <label class="font-mono text-xs uppercase text-ink-muted block">Seu E-mail ou Telefone</label>
+                <input type="text" placeholder="marina@escritorio.adv.br" class="w-full px-4 py-3 bg-paper border border-ink-border rounded text-sm text-ink-primary focus:outline-none focus:border-ink-primary">
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <label class="font-mono text-xs uppercase text-ink-muted block">Assunto do Contato</label>
+              <input type="text" placeholder="Oportunidade de Estágio / Projeto de Automação" class="w-full px-4 py-3 bg-paper border border-ink-border rounded text-sm text-ink-primary focus:outline-none focus:border-ink-primary">
+            </div>
+
+            <div class="space-y-2">
+              <label class="font-mono text-xs uppercase text-ink-muted block">Mensagem</label>
+              <textarea rows="4" placeholder="Descreva brevemente a demanda ou oportunidade forense..." class="w-full px-4 py-3 bg-paper border border-ink-border rounded text-sm text-ink-primary focus:outline-none focus:border-ink-primary"></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-4 bg-ink-primary text-paper font-mono text-xs uppercase tracking-wider rounded hover:bg-neutral-800 transition-colors">
+              Enviar Mensagem Direta
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-ink-border py-12 bg-paper-subtle text-ink-muted">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col sm:flex-row items-center justify-between gap-6 font-mono text-xs">
+      <div>
+        <p class="text-ink-primary font-medium">Danilo Ramblas</p>
+        <p class="text-[11px] text-ink-muted">Direito · Automação de Rotinas · Engenharia Jurídica</p>
+      </div>
+      <div>
+        <p>© 2026 Danilo Ramblas. Todos os direitos reservados.</p>
+      </div>
+      <div>
+        <a href="#" class="hover:text-ink-primary transition-colors">↑ Voltar ao topo</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
